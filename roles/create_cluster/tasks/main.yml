@@ -1,0 +1,21 @@
+- name: Create Kubernetes cluster
+  oci_oke_cluster:
+    compartment_id: "{{ oci_compartment_id }}"
+    name: "test_k8s_cluster"
+    kubernetes_version: "{{ kubernetes_version }}"
+    vcn_id: "{{ vcn_id }}"  # Utiliza el ID dinámico del VCN
+    subnets:
+      - "{{ subnet_id }}"  # Utiliza el ID dinámico de la subred
+    auth_kind: serviceaccount
+    service_account_file: "{{ lookup('env', 'ORACLE_APPLICATION_CREDENTIALS') }}"             
+    options:
+      add_ons:
+        is_kubernetes_dashboard_enabled: true
+        is_tiller_enabled: false
+      admission_controller_options:
+        is_pod_security_policy_enabled: true
+  register: cluster
+
+- name: Save Cluster ID
+  set_fact:
+    cluster_id: "{{ cluster.data.id }}"

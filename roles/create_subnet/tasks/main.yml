@@ -1,0 +1,11 @@
+- name: Create Subnet
+  oci_subnet:
+    compartment_id: "{{ oci_compartment_id }}"
+    vcn_id: "{{ vcn.data.id }}"
+    display_name: "k8s_subnet"
+    cidr_block: "10.0.1.0/24"
+  register: subnet
+
+- name: Save Subnet ID
+  set_fact:
+    subnet_id: "{{ subnet.data.id }}"

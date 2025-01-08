@@ -1,0 +1,8 @@
+- name: Deploy Kubernetes cluster on OCI
+  hosts: localhost
+  gather_facts: no
+  roles:
+    #- role: create_vcn
+    - role: create_subnet
+    - role: create_cluster
+    - role: add_worker_nodes

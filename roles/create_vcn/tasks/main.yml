@@ -1,0 +1,8 @@
+- name: Create VCN
+  oci_vcn:
+    compartment_id: "{{ oci_compartment_id }}"
+    display_name: "k8s_vcn"
+    cidr_block: "10.0.0.0/16"
+  register: vcn
+
+

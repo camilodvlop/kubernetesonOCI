@@ -1,0 +1,14 @@
+- name: Add worker nodes
+  oci_oke_node_pool:
+    compartment_id: "{{ oci_compartment_id }}"
+    cluster_id: "{{ cluster_id }}"  # Utiliza el ID dinámico del clúster
+    name: "worker_nodes"
+    kubernetes_version: "{{ kubernetes_version }}"
+    node_shape: "{{ node_shape }}"
+    node_metadata:
+      ssh_authorized_keys: "{{ lookup('file', ssh_key_path) }}"
+    subnets:
+      - "{{ subnet_id }}"  # Utiliza el ID dinámico de la subred
+    size: 3
+    auth_kind: serviceaccount
+    service_account_file: "{{ lookup('env', 'ORACLE_APPLICATION_CREDENTIALS') }}"           

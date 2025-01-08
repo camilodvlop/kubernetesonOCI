@@ -1,0 +1,3 @@
+oci_compartment_id: "ocid1.tenancy.oc1..aaaaaaaam2rix45dgyxjsivk7yhx64cmr2grug4yhol5w2vwuao6tpnb6txq"
+kubernetes_version: "v1.25.4"
+node_shape: "VM.Standard.E3.Flex"
