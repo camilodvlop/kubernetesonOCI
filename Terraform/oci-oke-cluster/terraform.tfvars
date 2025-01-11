@@ -1,0 +1,1 @@
+availability_domain = "cPmH:SA-BOGOTA-1-AD-1"
