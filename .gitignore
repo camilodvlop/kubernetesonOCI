@@ -1,3 +1,4 @@
 Terraform/oci-oke-cluster/*.terraform
 Terraform/oci-oke-cluster/*.terraform.*
 Terraform/oci-oke-cluster/*.tfstate*
+*.tfstate
